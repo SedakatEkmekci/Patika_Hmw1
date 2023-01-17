@@ -1,12 +1,20 @@
 import axios from "axios";
 
-async function getData(number) {
+const getData = (user_id) => {
+    return new Promise(async (resolve, reject) => {
+        const { data } = await axios('https://jsonplaceholder.typicode.com/users' + user_id);  //pulling user data
 
-    const { data: user_id } = await axios('https://jsonplaceholder.typicode.com/users/user_id');
-    const { data: post } = await axios('https://jsonplaceholder.typicode.com/posts')
-    //console.log(user_id);
-    console.log(post);
+        resolve(console.log(data));
+        reject(error);
+    });
 };
 
+const getPost = (post_id) => {
+    return new Promise(async (resolve, reject) => {
+        const { data } = await axios('https://jsonplaceholder.typicode.com/posts' + post_id); //pulling post data
 
-getData(1);
+        resolve(console.log(data));
+        reject(error);
+    })
+};
+
